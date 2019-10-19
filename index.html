@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <title>godot.download</title>
+        <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
+        <style>
+            *, html { margin: 0; padding: 0; box-sizing: border-box; }
+            @keyframes rainbow-party-border { 0% {border: 1.23em solid var(--one);} 20% {border: 1.23em solid var(--two);} 40% {border: 1.23em solid var(--three);} 60% {border: 1.23em solid var(--four);} 80% {border: 1.23em solid var(--five);} 100% {border: 1.23em solid var(--one);} }
+            body { width: 100vw; height: 100vh; background: #8c52f7; text-align: center; --one: #ff6b6b; --two: #feca57; --three: #1dd1a1; --four: #54a0ff; --five: #5f27cd; animation: rainbow-party-border 4.2s ease-in-out 0s infinite; }
+            @keyframes rainbow-party { 0% {text-shadow: 0px -3px var(--one), 3px -3px var(--one), 3px 0px var(--one), 3px 3px var(--one), 0px 3px var(--one), -3px 3px var(--one), -3px 0px var(--one), -3px -3px var(--one);} 20% {text-shadow: 0px -3px var(--two), 3px -3px var(--two), 3px 0px var(--two), 3px 3px var(--two), 0px 3px var(--two), -3px 3px var(--two), -3px 0px var(--two), -3px -3px var(--two);} 40% {text-shadow: 0px -3px var(--three), 3px -3px var(--three), 3px 0px var(--three), 3px 3px var(--three), 0px 3px var(--three), -3px 3px var(--three), -3px 0px var(--three), -3px -3px var(--three);} 60% {text-shadow: 0px -3px var(--four), 3px -3px var(--four), 3px 0px var(--four), 3px 3px var(--four), 0px 3px var(--four), -3px 3px var(--four), -3px 0px var(--four), -3px -3px var(--four);} 80% {text-shadow: 0px -3px var(--five), 3px -3px var(--five), 3px 0px var(--five), 3px 3px var(--five), 0px 3px var(--five), -3px 3px var(--five), -3px 0px var(--five), -3px -3px var(--five);} 100% {text-shadow: 0px -3px var(--one), 3px -3px var(--one), 3px 0px var(--one), 3px 3px var(--one), 0px 3px var(--one), -3px 3px var(--one), -3px 0px var(--one), -3px -3px var(--one);} }
+            h1 { animation: rainbow-party 0.5s ease-in-out 0s infinite; color: #fff; font-family: 'Modak', cursive; font-size: 4em; font-weight: 100; }
+            img { max-width: 50vw; max-height: 50vh; }
+            div { width: 100%; height: 100%; display: grid; justify-items: center; align-content: center; }
+            p { color: #ede; font-weight: bold; font-size: 1.23em; font-family: monospace; }
+            a { color: #ede; text-decoration: none; padding: 0.4em; border: 3px solid transparent; }
+            @keyframes rainbow-party-bg {
+                0% {background: linear-gradient(to right, var(--one), var(--two), var(--three), var(--four), var(--five));}
+                10% {background: linear-gradient(to right, var(--one), var(--one), var(--two), var(--three), var(--four), var(--five));}
+                20% {background: linear-gradient(to right, var(--five), var(--one), var(--two), var(--three), var(--four));}
+                30% {background: linear-gradient(to right, var(--five), var(--five), var(--one), var(--two), var(--three), var(--four));}
+                40% {background: linear-gradient(to right, var(--four), var(--five), var(--one), var(--two), var(--three));}
+                50% {background: linear-gradient(to right, var(--four), var(--four), var(--five), var(--one), var(--two), var(--three));}
+                60% {background: linear-gradient(to right, var(--three), var(--four), var(--five), var(--one), var(--two));}
+                70% {background: linear-gradient(to right, var(--three), var(--three), var(--four), var(--five), var(--one), var(--two));}
+                80% {background: linear-gradient(to right, var(--two), var(--three), var(--four), var(--five), var(--one));}
+                90% {background: linear-gradient(to right, var(--two), var(--two), var(--three), var(--four), var(--five), var(--one));}
+                100% {background: linear-gradient(to right, var(--one), var(--two), var(--three), var(--four), var(--five));}
+            }
+            a:hover {
+                animation: rainbow-party-bg 0.42s linear 0s infinite;
+                border: 3px solid #213;
+                box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
+                margin-left: -5px; margin-right: 5px;
+                font-weight: 900;
+            }
+            ::selection {
+                color: #ede;
+                background: #ede;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <img src="robo.png">
+            <h1>GODOT.DOWNLOAD</h1>
+            <p><a href="https://godotengine.org/donate">💜 SUPPORT GODOT ENGINE</a> || <a href="https://spencer.cool/coffee">SUPPORT THIS SITE 💜</a></p>
+        </div>
+        <script type="text/javascript">
+            const INFO = window.navigator
+            const HTTP = new XMLHttpRequest()
+            let url = ``
+            if (INFO.platform.toLowerCase().indexOf('win') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_win64.exe.zip'
+            else if (INFO.platform.toLowerCase().indexOf('mac') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_osx.64.zip'
+            else if (INFO.platform.toLowerCase().indexOf('linux') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_x11.64.zip'
+            
+            // HTTP.open("GET", url)
+            // HTTP.send()
+
+            HTTP.onreadystatechange = (e) => {
+                console.log(HTTP.responseText)
+            }
+
+            // window.location.replace("https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_x11.64.zip");
+        </script>
+    </body>
+</html>

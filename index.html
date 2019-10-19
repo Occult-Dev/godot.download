@@ -47,14 +47,70 @@
             <p><a href="https://godotengine.org/donate">💜 SUPPORT GODOT ENGINE</a> || <a href="https://spencer.cool/coffee">SUPPORT THIS SITE 💜</a></p>
         </div>
         <script type="text/javascript">
-            const INFO = window.navigator
-            
-            let url = ``
-            if (INFO.platform.toLowerCase().indexOf('win') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_win64.exe.zip'
-            else if (INFO.platform.toLowerCase().indexOf('mac') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_osx.64.zip'
-            else if (INFO.platform.toLowerCase().indexOf('linux') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_x11.64.zip'
+            const HTTP = new XMLHttpRequest()
+            const download_dir = 'https://downloads.tuxfamily.org/godotengine/'
+            HTTP.open("GET", download_dir)
+            HTTP.send()
+            HTTP.onreadystatechange = (e) => {
+                console.log(`${e}\n\n${HTTP.responseText}`)
+            }
 
-            window.location.replace(url);
+            if (window.location.toString().indexOf('/?') >= 0) {
+                let url = window.location.toString()
+                let forced_option = url.substring(url.indexOf('?')+1)
+
+                if (forced_option == '32bit') {
+
+                }
+                else if (forced_option == 'windows-32bit') url = ''
+                else if (forced_option == 'linux-32bit') url = ''
+                
+                else if (forced_option == 'beta') {
+
+                }
+                else if (forced_option == 'windows-beta') url = ''
+                else if (forced_option == 'mac-beta') url = ''
+                else if (forced_option == 'linux-beta') url = ''
+                else if (forced_option == 'windows-32bit-beta') url = ''
+                else if (forced_option == 'linux-32bit-beta') url = ''
+
+                else if (forced_option == 'mono') {
+
+                }
+                else if (forced_option == 'windows-mono') url = ''
+                else if (forced_option == 'mac-mono') url = ''
+                else if (forced_option == 'linux-mono') url = ''
+                else if (forced_option == 'windows-32bit-mono') url = ''
+                else if (forced_option == 'linux-32bit-mono') url = ''
+                else if (forced_option == 'windows-mono-beta') url = ''
+                else if (forced_option == 'mac-mono-beta') url = ''
+                else if (forced_option == 'linux-mono-beta') url = ''
+                else if (forced_option == 'windows-32bit-mono-beta') url = ''
+                else if (forced_option == 'linux-32bit-mono-beta') url = ''
+                
+                else if (forced_option == 'headless') url = ''
+                else if (forced_option == 'server') url = ''
+                else if (forced_option == 'headless-beta') url = ''
+                else if (forced_option == 'server-beta') url = ''
+
+                else if (forced_option == 'export' || forced_option == 'export-templates' || forced_option == 'exporttemplates' || forced_option == 'templates') url = ''
+                else if (forced_option == 'export-mono' || forced_option == 'export-templates-mono' || forced_option == 'exporttemplates-mono' || forced_option == 'templates-mono') url = ''
+                else if (forced_option == 'export-beta' || forced_option == 'export-templates-beta' || forced_option == 'exporttemplates-beta' || forced_option == 'templates-beta') url = ''
+                else if (forced_option == 'export-mono-beta' || forced_option == 'export-templates-mono-beta' || forced_option == 'exporttemplates-mono-beta' || forced_option == 'templates-mono-beta') url = ''
+
+                else if (forced_option == 'asset' || forced_option == 'assets') url = 'https://godotengine.org/asset-library/asset'
+                else if (forced_option == 'demo' || forced_option == 'demos') url = 'https://godotengine.org/asset-library/asset?category=10&support[official]=1'
+            }
+            else {
+                const INFO = window.navigator
+            
+                let url = ``
+                if (INFO.platform.toLowerCase().indexOf('win') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_win64.exe.zip'
+                else if (INFO.platform.toLowerCase().indexOf('mac') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_osx.64.zip'
+                else if (INFO.platform.toLowerCase().indexOf('linux') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_x11.64.zip'
+
+                // window.location.replace(url);
+            }
         </script>
     </body>
 </html>

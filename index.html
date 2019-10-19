@@ -120,9 +120,9 @@
                 else if (forced_option == 'demo' || forced_option == 'demos') url = 'https://godotengine.org/asset-library/asset?category=10&support[official]=1'
             }
             else {
-                if (OS.indexOf('win') >= 0 ) url = ''
-                else if (OS.indexOf('mac') >= 0 ) url = ''
-                else if (OS.indexOf('linux') >= 0 ) url = ''
+                if (OS.indexOf('win') >= 0 ) url = download_links.windows.stable_64bit
+                else if (OS.indexOf('mac') >= 0 ) url = download_links.mac.stable
+                else if (OS.indexOf('linux') >= 0 ) url = download_links.linux.stable_64bit
             }
 
             // window.location.replace(url);

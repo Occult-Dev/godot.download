@@ -2,6 +2,18 @@
 <html>
     <head>
         <title>godot.download</title>
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicomatic/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicomatic/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicomatic/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicomatic/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicomatic/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicomatic/apple-touch-icon-152x152.png" />
+        <link rel="icon" type="image/png" href="favicomatic/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="favicomatic/favicon-16x16.png" sizes="16x16" />
+        <meta name="application-name" content="godot.download"/>
+        <meta name="msapplication-TileColor" content="#8C52F7" />
+        <meta name="msapplication-TileImage" content="favicomatic/mstile-144x144.png" />
+        <meta name="theme-color" content="#8C52F7">
         <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
         <style>
             *, html { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,6 +50,7 @@
                 background: #ede;
             }
         </style>
+        <script src="download-links.js"></script>
     </head>
 
     <body>
@@ -46,71 +59,73 @@
             <h1>GODOT.DOWNLOAD</h1>
             <p><a href="https://godotengine.org/donate">💜 SUPPORT GODOT ENGINE</a> || <a href="https://spencer.cool/coffee">SUPPORT THIS SITE 💜</a></p>
         </div>
+        
         <script type="text/javascript">
-            const HTTP = new XMLHttpRequest()
-            const download_dir = 'https://downloads.tuxfamily.org/godotengine/'
-            HTTP.open("GET", download_dir)
-            HTTP.send()
-            HTTP.onreadystatechange = (e) => {
-                console.log(`${e}\n\n${HTTP.responseText}`)
-            }
+            const OS = window.navigator.platform.toLowerCase()
+            let url = window.location.toString()
 
-            if (window.location.toString().indexOf('/?') >= 0) {
-                let url = window.location.toString()
+            console.log(download_links.linux)
+
+            if (url.indexOf('/?') >= 0) {
                 let forced_option = url.substring(url.indexOf('?')+1)
 
                 if (forced_option == '32bit') {
-
+                    if (OS.indexOf('win') >= 0 ) url = download_links.windows.stable_32bit
+                    else if (OS.indexOf('linux') >= 0 ) url = download_links.linux.stable_32bit
                 }
-                else if (forced_option == 'windows-32bit') url = ''
-                else if (forced_option == 'linux-32bit') url = ''
+                else if (forced_option == 'windows-32bit') url = download_links.windows.stable_32bit
+                else if (forced_option == 'linux-32bit') url = download_links.linux.stable_32bit
                 
                 else if (forced_option == 'beta') {
-
+                    if (OS.indexOf('win') >= 0 ) url = download_links.windows.beta_64bit
+                    else if (OS.indexOf('mac') >= 0 ) url = download_links.mac.beta
+                    else if (OS.indexOf('linux') >= 0 ) url = download_links.linux.beta_64bit
                 }
-                else if (forced_option == 'windows-beta') url = ''
-                else if (forced_option == 'mac-beta') url = ''
-                else if (forced_option == 'linux-beta') url = ''
-                else if (forced_option == 'windows-32bit-beta') url = ''
-                else if (forced_option == 'linux-32bit-beta') url = ''
+                else if (forced_option == 'windows-beta') url = download_links.windows.beta_64bit
+                else if (forced_option == 'mac-beta') url = download_links.mac.beta
+                else if (forced_option == 'linux-beta') url = download_links.linux.beta_64bit
+                else if (forced_option == 'windows-32bit-beta') url = download_links.windows.beta_32bit
+                else if (forced_option == 'linux-32bit-beta') url = download_links.linux.beta_32bit
 
                 else if (forced_option == 'mono') {
-
+                    if (OS.indexOf('win') >= 0 ) url = download_links.windows.mono_64bit
+                    else if (OS.indexOf('mac') >= 0 ) url = download_links.mac.mono
+                    else if (OS.indexOf('linux') >= 0 ) url = download_links.linux.mono_64bit
                 }
-                else if (forced_option == 'windows-mono') url = ''
-                else if (forced_option == 'mac-mono') url = ''
-                else if (forced_option == 'linux-mono') url = ''
-                else if (forced_option == 'windows-32bit-mono') url = ''
-                else if (forced_option == 'linux-32bit-mono') url = ''
-                else if (forced_option == 'windows-mono-beta') url = ''
-                else if (forced_option == 'mac-mono-beta') url = ''
-                else if (forced_option == 'linux-mono-beta') url = ''
-                else if (forced_option == 'windows-32bit-mono-beta') url = ''
-                else if (forced_option == 'linux-32bit-mono-beta') url = ''
+                else if (forced_option == 'windows-mono') url = download_links.windows.mono_64bit
+                else if (forced_option == 'mac-mono') url = download_links.mac.mono
+                else if (forced_option == 'linux-mono') url = download_links.linux.mono_64bit
+                else if (forced_option == 'windows-32bit-mono') url = download_links.windows.mono_32bit
+                else if (forced_option == 'linux-32bit-mono') url = download_links.linux.mono_32bit
+                else if (forced_option == 'windows-mono-beta') url = download_links.windows.mono_64bit_beta
+                else if (forced_option == 'mac-mono-beta') url = download_links.mac.mono_beta
+                else if (forced_option == 'linux-mono-beta') url = download_links.linux.mono_64bit_beta
+                else if (forced_option == 'windows-32bit-mono-beta') url = download_links.windows.mono_32bit_beta
+                else if (forced_option == 'linux-32bit-mono-beta') url = download_links.linux.mono_32bit_beta
                 
-                else if (forced_option == 'headless') url = ''
-                else if (forced_option == 'server') url = ''
-                else if (forced_option == 'headless-beta') url = ''
-                else if (forced_option == 'server-beta') url = ''
+                else if (forced_option == 'headless') url = download_links.server.headless
+                else if (forced_option == 'server') url = download_links.server.server
+                else if (forced_option == 'headless-beta') url = download_links.server.headless_beta
+                else if (forced_option == 'server-beta') url = download_links.server.server_beta
 
-                else if (forced_option == 'export' || forced_option == 'export-templates' || forced_option == 'exporttemplates' || forced_option == 'templates') url = ''
-                else if (forced_option == 'export-mono' || forced_option == 'export-templates-mono' || forced_option == 'exporttemplates-mono' || forced_option == 'templates-mono') url = ''
-                else if (forced_option == 'export-beta' || forced_option == 'export-templates-beta' || forced_option == 'exporttemplates-beta' || forced_option == 'templates-beta') url = ''
-                else if (forced_option == 'export-mono-beta' || forced_option == 'export-templates-mono-beta' || forced_option == 'exporttemplates-mono-beta' || forced_option == 'templates-mono-beta') url = ''
+                else if (forced_option == 'export' || forced_option == 'export-templates' || forced_option == 'exporttemplates' || forced_option == 'templates') url = download_links.export_temlates.standard
+                else if (forced_option == 'export-mono' || forced_option == 'export-templates-mono' || forced_option == 'exporttemplates-mono' || forced_option == 'templates-mono') url = download_links.export_temlates.mono
+                else if (forced_option == 'export-beta' || forced_option == 'export-templates-beta' || forced_option == 'exporttemplates-beta' || forced_option == 'templates-beta') url = download_links.export_temlates.standard_beta
+                else if (forced_option == 'export-mono-beta' || forced_option == 'export-templates-mono-beta' || forced_option == 'exporttemplates-mono-beta' || forced_option == 'templates-mono-beta') url = download_links.export_temlates.mono_beta
 
+                else if (forced_option == 'source' || forced_option == 'source-code' || forced_option == 'sourcecode') url = download_links.source.stable
+                else if (forced_option == 'source-beta' || forced_option == 'source-code-beta' || forced_option == 'sourcecode-beta') url = download_links.source.beta
+                
                 else if (forced_option == 'asset' || forced_option == 'assets') url = 'https://godotengine.org/asset-library/asset'
                 else if (forced_option == 'demo' || forced_option == 'demos') url = 'https://godotengine.org/asset-library/asset?category=10&support[official]=1'
             }
             else {
-                const INFO = window.navigator
-            
-                let url = ``
-                if (INFO.platform.toLowerCase().indexOf('win') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_win64.exe.zip'
-                else if (INFO.platform.toLowerCase().indexOf('mac') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_osx.64.zip'
-                else if (INFO.platform.toLowerCase().indexOf('linux') >= 0 ) url = 'https://downloads.tuxfamily.org/godotengine/3.1.1/Godot_v3.1.1-stable_x11.64.zip'
-
-                // window.location.replace(url);
+                if (OS.indexOf('win') >= 0 ) url = ''
+                else if (OS.indexOf('mac') >= 0 ) url = ''
+                else if (OS.indexOf('linux') >= 0 ) url = ''
             }
+
+            // window.location.replace(url);
         </script>
     </body>
 </html>

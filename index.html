@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
         <style>
             *, html { margin: 0; padding: 0; box-sizing: border-box; }
+            ::selection { color: #ede; background: #ede; }
             @keyframes rainbow-party-border { 0% {border: 1.23em solid var(--one);} 20% {border: 1.23em solid var(--two);} 40% {border: 1.23em solid var(--three);} 60% {border: 1.23em solid var(--four);} 80% {border: 1.23em solid var(--five);} 100% {border: 1.23em solid var(--one);} }
             body { width: 100vw; height: 100vh; background: #8c52f7; text-align: center; --one: #ff6b6b; --two: #feca57; --three: #1dd1a1; --four: #54a0ff; --five: #5f27cd; animation: rainbow-party-border 4.2s ease-in-out 0s infinite; }
             @keyframes rainbow-party { 0% {text-shadow: 0px -3px var(--one), 3px -3px var(--one), 3px 0px var(--one), 3px 3px var(--one), 0px 3px var(--one), -3px 3px var(--one), -3px 0px var(--one), -3px -3px var(--one);} 20% {text-shadow: 0px -3px var(--two), 3px -3px var(--two), 3px 0px var(--two), 3px 3px var(--two), 0px 3px var(--two), -3px 3px var(--two), -3px 0px var(--two), -3px -3px var(--two);} 40% {text-shadow: 0px -3px var(--three), 3px -3px var(--three), 3px 0px var(--three), 3px 3px var(--three), 0px 3px var(--three), -3px 3px var(--three), -3px 0px var(--three), -3px -3px var(--three);} 60% {text-shadow: 0px -3px var(--four), 3px -3px var(--four), 3px 0px var(--four), 3px 3px var(--four), 0px 3px var(--four), -3px 3px var(--four), -3px 0px var(--four), -3px -3px var(--four);} 80% {text-shadow: 0px -3px var(--five), 3px -3px var(--five), 3px 0px var(--five), 3px 3px var(--five), 0px 3px var(--five), -3px 3px var(--five), -3px 0px var(--five), -3px -3px var(--five);} 100% {text-shadow: 0px -3px var(--one), 3px -3px var(--one), 3px 0px var(--one), 3px 3px var(--one), 0px 3px var(--one), -3px 3px var(--one), -3px 0px var(--one), -3px -3px var(--one);} }
@@ -25,29 +26,24 @@
             div { width: 100%; height: 100%; display: grid; justify-items: center; align-content: center; }
             p { color: #ede; font-weight: bold; font-size: 1.23em; font-family: monospace; }
             a { color: #ede; text-decoration: none; padding: 0.4em; border: 3px solid transparent; }
-            @keyframes rainbow-party-bg {
-                0% {background: linear-gradient(to right, var(--one), var(--two), var(--three), var(--four), var(--five));}
-                10% {background: linear-gradient(to right, var(--one), var(--one), var(--two), var(--three), var(--four), var(--five));}
-                20% {background: linear-gradient(to right, var(--five), var(--one), var(--two), var(--three), var(--four));}
-                30% {background: linear-gradient(to right, var(--five), var(--five), var(--one), var(--two), var(--three), var(--four));}
-                40% {background: linear-gradient(to right, var(--four), var(--five), var(--one), var(--two), var(--three));}
-                50% {background: linear-gradient(to right, var(--four), var(--four), var(--five), var(--one), var(--two), var(--three));}
-                60% {background: linear-gradient(to right, var(--three), var(--four), var(--five), var(--one), var(--two));}
-                70% {background: linear-gradient(to right, var(--three), var(--three), var(--four), var(--five), var(--one), var(--two));}
-                80% {background: linear-gradient(to right, var(--two), var(--three), var(--four), var(--five), var(--one));}
-                90% {background: linear-gradient(to right, var(--two), var(--two), var(--three), var(--four), var(--five), var(--one));}
-                100% {background: linear-gradient(to right, var(--one), var(--two), var(--three), var(--four), var(--five));}
+            @keyframes rainbow-party-bg { 0% {background: linear-gradient(to right, var(--one), var(--two), var(--three), var(--four), var(--five));} 10% {background: linear-gradient(to right, var(--one), var(--one), var(--two), var(--three), var(--four), var(--five));} 20% {background: linear-gradient(to right, var(--five), var(--one), var(--two), var(--three), var(--four));} 30% {background: linear-gradient(to right, var(--five), var(--five), var(--one), var(--two), var(--three), var(--four));} 40% {background: linear-gradient(to right, var(--four), var(--five), var(--one), var(--two), var(--three));} 50% {background: linear-gradient(to right, var(--four), var(--four), var(--five), var(--one), var(--two), var(--three));} 60% {background: linear-gradient(to right, var(--three), var(--four), var(--five), var(--one), var(--two));} 70% {background: linear-gradient(to right, var(--three), var(--three), var(--four), var(--five), var(--one), var(--two));} 80% {background: linear-gradient(to right, var(--two), var(--three), var(--four), var(--five), var(--one));} 90% {background: linear-gradient(to right, var(--two), var(--two), var(--three), var(--four), var(--five), var(--one));} 100% {background: linear-gradient(to right, var(--one), var(--two), var(--three), var(--four), var(--five));} }
+            .mega-link:hover { animation: rainbow-party-bg 0.42s linear 0s infinite; border: 3px solid #213; box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25); margin-left: -5px; margin-right: 5px; font-weight: 900; }
+            .minor-link {
+                border: 0.23em solid #213;
+                color: #213;
+                font-size: 1em;
+                font-weight: normal;
             }
-            a:hover {
-                animation: rainbow-party-bg 0.42s linear 0s infinite;
-                border: 3px solid #213;
-                box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
-                margin-left: -5px; margin-right: 5px;
-                font-weight: 900;
-            }
-            ::selection {
-                color: #ede;
+            @keyframes rainbow-party-underline { 0% {border: 0.23em solid var(--one);} 20% {border: 0.23em solid var(--two);} 40% {border: 0.23em solid var(--three);} 60% {border: 0.23em solid var(--four);} 80% {border: 0.23em solid var(--five);} 100% {border: 0.23em solid var(--one);} }
+            .minor-link:hover {
+                border: 0.23em solid transparent;
                 background: #ede;
+                /* font-size: 1.1em; */
+                font-weight: 900;
+                animation: rainbow-party-underline 0.42s linear 0s infinite;
+            }
+            .link-list {
+                /* display: grid; */
             }
         </style>
         <script src="download-links.js"></script>
@@ -57,14 +53,14 @@
         <div>
             <img src="robo.png">
             <h1>GODOT.DOWNLOAD</h1>
-            <p><a href="https://godotengine.org/donate">💜 SUPPORT GODOT ENGINE</a> || <a href="https://spencer.cool/coffee">SUPPORT THIS SITE 💜</a></p>
+            <p><a class="mega-link" href="https://godotengine.org/donate">💜 SUPPORT GODOT ENGINE</a> || <a class="mega-link" href="https://spencer.cool/coffee">SUPPORT THIS SITE 💜</a></p>
+            <br>
+            <!-- <p class="link-list"><a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a> - <a class="minor-link" onclick="window.location.replace(download_links)">windows.stable.64bit</a></p> -->
         </div>
         
         <script type="text/javascript">
             const OS = window.navigator.platform.toLowerCase()
             let url = window.location.toString()
-
-            console.log(download_links.linux)
 
             if (url.indexOf('/?') >= 0) {
                 let forced_option = url.substring(url.indexOf('?')+1)
@@ -123,9 +119,10 @@
                 if (OS.indexOf('win') >= 0 ) url = download_links.windows.stable_64bit
                 else if (OS.indexOf('mac') >= 0 ) url = download_links.mac.stable
                 else if (OS.indexOf('linux') >= 0 ) url = download_links.linux.stable_64bit
+                else url = 'SKIP'
             }
 
-            // window.location.replace(url);
+            if (url != 'SKIP') window.location.replace(url);
         </script>
     </body>
 </html>
